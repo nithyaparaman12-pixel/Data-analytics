@@ -1,0 +1,27 @@
+import pandas as pd
+
+# Sample Data
+data = {
+    "Name": ["A", "B", "C", "D"],
+    "Age": [25, None, 30, None],
+    "Salary": [30000, 40000, None, 50000],
+    "City": ["Chennai", None, "Madurai", "Coimbatore"]
+}
+
+df = pd.DataFrame(data)
+
+# 1️⃣ Missing values per column
+print("Missing values count per column:")
+print(df.isnull().sum())
+
+# 2️⃣ Check if any missing values exist
+print("\nAny missing values present?")
+print(df.isnull().values.any())
+
+# 3️⃣ Total missing values in dataset
+print("\nTotal missing values:")
+print(df.isnull().sum().sum())
+
+# 4️⃣ Show rows which contain missing values
+print("\nRows with missing values:")
+print(df[df.isnull().any(axis=1)])
